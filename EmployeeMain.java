@@ -147,6 +147,7 @@ public class EmployeeMain {
 		
 		for(EmployeeVo e:emp)
 		{
+			//toString() method can be used
 			System.out.println("Employee ID               :   " + e.empid);
 			System.out.println("Emplpoyee Name            :   " + e.empname);
 			System.out.println("Annual Income             :   " + e.annualIncome);
