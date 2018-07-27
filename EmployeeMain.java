@@ -1,7 +1,11 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
 class EmployeeVo {
 	
@@ -96,7 +100,7 @@ class EmployeeSort implements Comparator<EmployeeVo>{
 
 	@Override
 	public int compare(EmployeeVo e1, EmployeeVo e2) {
-		return (int)(e1.incometax-e2.incometax);
+		return (int)(e2.incometax-e1.incometax);
 	}
 	
 }
@@ -130,12 +134,13 @@ public class EmployeeMain {
 			ename=br.readLine();
 			System.out.println("Enter the annual income : ");
 			einc=Double.parseDouble(br.readLine());
-			emp[c].setEmpid(eid);
-			emp[c].setEmpname(ename);
-			emp[c].setAnnualIncome(einc);
+			emp[c]=new EmployeeVo(eid, ename, einc, 0.0);
 			b.calincometax(emp[c]);
 		}
 		
+		List<EmployeeVo> empl=Arrays.asList(emp);
+		
+		Collections.sort(empl, new EmployeeSort());
 		System.out.println();
 		System.out.println("EMPLOYEE DETAILS");
 		System.out.println("---------------------");
