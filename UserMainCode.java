@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class UserMainCode {
 
@@ -19,8 +22,17 @@ public class UserMainCode {
 		}
 		return result;
 	}
-	public static void main(String[] args) {
-		int[] arr= {7,3,3,5,5,5,2,3};
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		
+		InputStreamReader isr=new InputStreamReader(System.in);
+		BufferedReader br=new BufferedReader(isr);
+		int[] arr= new int[8];
+		
+		System.out.println("Enter the numbers :-");
+		for(int i=0;i<8;i++)
+		{
+			arr[i]=Integer.parseInt(br.readLine());
+		}
 		
 		boolean result=checkTriplets(arr);
 		System.err.println(result);
